@@ -1,0 +1,231 @@
+.root {
+  position: relative;
+}
+
+/* ── GNB 검색 필드 (트리거) ── */
+.trigger {
+  width: 300px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 12px;
+  border: 1px solid var(--line-input);
+  border-radius: 4px;
+  background: var(--bg-white);
+  font-size: 13px;
+  text-align: left;
+  cursor: text;
+}
+
+.placeholder {
+  color: var(--text-body);
+}
+
+.value {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--text-default);
+}
+
+.triggerIcon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ── 검색 레이어 (Figma: 검색레이어 504 × 526) ── */
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 504px;
+  padding-top: 16px;
+  background: var(--bg-white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: layerIn 0.18s ease-out;
+}
+
+@keyframes layerIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding: 0 32px;
+}
+
+.field {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--line-strong);
+}
+
+.field input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  letter-spacing: inherit;
+  color: var(--text-default);
+}
+
+.field input::placeholder {
+  color: var(--text-body);
+}
+
+.field input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.submit {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.keywords {
+  display: flex;
+}
+
+.recent,
+.popular {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 24px;
+}
+
+.recent {
+  padding-right: 20px;
+}
+
+.popular {
+  padding-left: 20px;
+  border-left: 1px solid var(--line-default);
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-default);
+}
+
+.popularHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.time {
+  font-size: 12px;
+  color: var(--text-body);
+}
+
+.empty {
+  padding: 60px 0;
+  font-size: 14px;
+  text-align: center;
+  color: var(--text-body);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  color: var(--text-default);
+}
+
+.rankItem {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.rank {
+  width: 30px;
+  padding-left: 8px;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+.keywordText {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.recentItem {
+  height: 32px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.keyword {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.remove {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.remove:hover {
+  opacity: 1;
+}
+
+.rankItem:hover .keywordText,
+.keyword:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer {
+  height: 51px;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid var(--line-default);
+}
+
+.close {
+  width: 52px;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer {
+    animation: none;
+  }
+}

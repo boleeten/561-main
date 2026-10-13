@@ -250,3 +250,9 @@ export const footerLinks = [
   "입점/제휴문의",
   "대량구매",
 ];
+
+// 검색 레이어 — 인기 검색어 (더미)
+export const popularKeywords = {
+  updatedAt: "10.12 15:00:00",
+  items: ["레스포색", "판도라", "UDF MLB X PEANUTS", "캐스키드슨", "파우치", "파라점퍼스", "베어브릭", "산드리옹", "판도라 참", "타이맥스"],
+};

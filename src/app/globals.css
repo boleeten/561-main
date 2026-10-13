@@ -19,6 +19,7 @@
   --line-input: #dadde0; /* 정의X (임시) */
   --line-soft: #eceff2; /* 정의X (임시) */
   --line-divider: #eeeeee; /* 정의X (임시) */
+  --line-default: #f1f1f5;
 
   /* Icon */
   --icon-default: #191919;

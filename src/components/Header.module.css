@@ -39,38 +39,6 @@
   justify-content: center;
 }
 
-.search {
-  width: 300px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 12px;
-  border: 1px solid var(--line-input);
-  border-radius: 4px;
-  background: var(--bg-white);
-}
-
-.search input {
-  flex: 1;
-  min-width: 0;
-  border: 0;
-  outline: 0;
-  font: inherit;
-  font-size: 13px;
-  letter-spacing: inherit;
-  color: var(--text-default);
-  background: transparent;
-}
-
-.search input::placeholder {
-  color: var(--text-body);
-}
-
-.search input::-webkit-search-cancel-button {
-  display: none;
-}
-
 .iconBtn {
   width: 36px;
   height: 36px;

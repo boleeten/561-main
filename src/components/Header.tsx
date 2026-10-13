@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import GnbSearch from "./GnbSearch";
 import { gnbCategories, gnbMenus, gnbUtils } from "@/data/main";
 import styles from "./Header.module.css";
 
@@ -15,15 +16,7 @@ export default function Header() {
               <Link href="/" className={styles.logo} aria-label="561 홈">
                 <Image src="/icons/logo.svg" alt="561" width={42.13} height={26.1383} priority />
               </Link>
-              <form className={styles.search} role="search">
-                <label htmlFor="gnb-search" className="sr-only">
-                  검색
-                </label>
-                <input id="gnb-search" type="search" placeholder="검색어를 입력해 주세요." />
-                <button type="submit" className={styles.iconBtn} aria-label="검색">
-                  <Image src="/icons/search-24.svg" alt="" width={24} height={24} />
-                </button>
-              </form>
+              <GnbSearch />
             </div>
             <ul className={styles.utils}>
               {gnbUtils.map((u) => (
