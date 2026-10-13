@@ -1,0 +1,92 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.nav {
+  display: flex;
+}
+
+.btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-button);
+  background: var(--bg-white);
+}
+
+.btn + .btn {
+  margin-left: -1px;
+}
+
+.btn:disabled {
+  cursor: default;
+}
+
+.btn:disabled img {
+  opacity: 0.3;
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 336px;
+  scroll-snap-align: start;
+}
+
+.card a {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.img {
+  position: relative;
+  display: block;
+  aspect-ratio: 336 / 450;
+  overflow: hidden;
+  background: var(--bg-light);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-default);
+}
+
+.body {
+  font-size: 14px;
+  color: var(--text-body);
+}
+
+.brands {
+  font-size: 15px;
+  color: var(--text-body);
+}

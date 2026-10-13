@@ -1,0 +1,47 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px 28px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  aspect-ratio: 374 / 476;
+  overflow: hidden;
+  background: var(--bg-light);
+}
+
+.card img {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.03);
+}
+
+.dim {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 374 / 286;
+  background: linear-gradient(180deg, rgba(6, 6, 6, 0) 0%, rgba(6, 6, 6, 0.5) 100%);
+}
+
+/* Figma: 라벨 상단이 하단에서 49px */
+.label {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: calc(100% - 49px);
+  font-size: 18px;
+  color: var(--text-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card img {
+    transition: none;
+  }
+}

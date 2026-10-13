@@ -1,0 +1,168 @@
+.footer {
+  background: var(--bg-light);
+  padding: 30px 0 60px;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 14px;
+  color: var(--text-default);
+}
+
+.links li {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.links li + li::before,
+.row > * + *::before {
+  content: "";
+  width: 1px;
+  height: 10px;
+  background: var(--line-divider);
+}
+
+.links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hr {
+  height: 1px;
+  border: 0;
+  background: var(--line-divider);
+}
+
+.body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.company {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-style: normal;
+  font-size: 14px;
+  color: var(--text-default);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.row > * {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wide,
+.wide > * {
+  gap: 12px;
+}
+
+.textBtn {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.textBtn img {
+  margin-left: -10px;
+}
+
+.cs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.csTop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.csTitle {
+  display: flex;
+  gap: 8px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.tel {
+  letter-spacing: 0;
+}
+
+.mail {
+  font-size: 13px;
+  letter-spacing: 0;
+  color: var(--text-sub);
+}
+
+.buttons {
+  display: flex;
+  gap: 2px;
+  margin-top: 4px;
+}
+
+.btn {
+  height: 26px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 1px solid var(--line-button);
+  background: var(--bg-white);
+  font-size: 12px;
+}
+
+.btn:hover {
+  border-color: var(--line-strong);
+}
+
+.app {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.appText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.appTitle {
+  font-size: 15px;
+}
+
+.appDesc {
+  font-size: 13px;
+  color: var(--text-disable);
+}

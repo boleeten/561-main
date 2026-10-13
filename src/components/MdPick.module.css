@@ -1,0 +1,72 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+}
+
+.tab {
+  padding: 0 16px;
+  font-size: 16px;
+  letter-spacing: 0;
+  color: var(--text-body);
+}
+
+.tab span {
+  display: block;
+  height: 46px;
+  padding: 12px 2px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--text-default);
+}
+
+.active {
+  font-weight: 600;
+  color: var(--text-default);
+}
+
+.active span {
+  border-bottom-color: var(--line-strong);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 36px 28px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.pageBtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.count {
+  display: flex;
+  gap: 2px;
+  font-size: 16px;
+  color: var(--text-default);
+}

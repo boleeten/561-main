@@ -1,0 +1,72 @@
+.band {
+  position: relative;
+  height: 150px;
+}
+
+.img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: var(--bg-light);
+}
+
+.img img {
+  object-fit: cover;
+}
+
+.roll {
+  position: absolute;
+  top: 47px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev {
+  left: 0;
+  padding: 18px 6px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.next {
+  right: 0;
+  width: 32px;
+  padding: 20px 8px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.indicator {
+  position: absolute;
+  top: 116px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dots button {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--icon-light);
+}
+
+.dots .active {
+  background: var(--icon-default);
+}
+
+.pause {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

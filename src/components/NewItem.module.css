@@ -1,0 +1,40 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.listWrap {
+  position: relative;
+  container-type: inline-size;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  column-gap: 28px;
+}
+
+/* 썸네일 세로 중앙: 카드폭 × 371/292 ÷ 2 − 버튼높이/2 */
+.roll {
+  position: absolute;
+  top: calc((100cqw - 112px) / 5 * 371 / 292 / 2 - 28px);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.prev {
+  left: 0;
+  padding: 18px 6px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.next {
+  right: 0;
+  width: 32px;
+  padding: 20px 8px;
+  background: rgba(0, 0, 0, 0.3);
+}

@@ -1,27 +1,45 @@
+/* Design tokens — DESIGN.md 참고 (Figma 561_메인) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Text */
+  --text-default: #191919;
+  --text-sub: #505050;
+  --text-body: #767676;
+  --text-disable: #999999;
+  --text-white: #ffffff;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  /* Background */
+  --bg-white: #ffffff;
+  --bg-light: #f8f8fa;
+  --bg-black: #191919;
+  --bg-promo: #000000; /* 정의X (임시) */
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+  /* Line */
+  --line-strong: #191919;
+  --line-button: #d4d4d8;
+  --line-input: #dadde0; /* 정의X (임시) */
+  --line-soft: #eceff2; /* 정의X (임시) */
+  --line-divider: #eeeeee; /* 정의X (임시) */
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Icon */
+  --icon-default: #191919;
+  --icon-light: #d4d4d8;
+  --icon-white: #ffffff;
+
+  /* Point */
+  --point: #740dfc;
+
+  /* Overlay */
+  --thumb-tint: rgba(24, 26, 29, 0.03);
+
+  /* Typography */
+  --font-base: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --lh: 1.4;
+  --ls-kr: -0.02em;
+
+  /* Layout: 콘텐츠 폭 1280 ~ 1580 */
+  --container: clamp(1280px, calc(100% - 80px), 1580px);
+  --section-gap: 110px;
 }
 
 * {
@@ -30,13 +48,55 @@ body {
   margin: 0;
 }
 
+body {
+  min-width: 1280px;
+  color: var(--text-default);
+  background: var(--bg-white);
+  font-family: var(--font-base);
+  line-height: var(--lh);
+  letter-spacing: var(--ls-kr);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+button {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--point);
+  outline-offset: 2px;
+}
+
+.container {
+  width: var(--container);
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }

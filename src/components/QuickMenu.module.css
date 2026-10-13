@@ -1,0 +1,123 @@
+.wrap {
+  position: relative;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.item {
+  width: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.thumb {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-light);
+}
+
+/* 이미지 위 미세 틴트 */
+.thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--thumb-tint);
+  pointer-events: none;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  text-align: center;
+  color: var(--text-default);
+}
+
+.item:hover .label {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 리스트(10 × 92 + 9 × 30 = 1190) 오른쪽 끝 + 13px */
+.more {
+  position: absolute;
+  top: 22px;
+  left: calc(50% + 595px + 13px);
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+/* ── 배지형 썸네일 ── */
+.timesale,
+.outlet {
+  border-radius: 10.222px;
+}
+
+.timesale {
+  background: linear-gradient(180deg, #00996e 0%, #e4d9c7 100%);
+}
+
+.outlet {
+  background: #a10a0a;
+}
+
+.ring {
+  position: absolute;
+  left: -17.889px;
+  top: 2.556px;
+}
+
+.tick {
+  position: absolute;
+}
+
+.tickTop {
+  left: 44.722px;
+  top: 7.667px;
+}
+
+.tickLeft {
+  left: 15.111px;
+  top: 17.667px;
+  transform: rotate(-45deg);
+}
+
+.tickRight {
+  left: 81.5px;
+  top: 17.667px;
+  transform: rotate(45deg);
+}
+
+.badgeText {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-white);
+  font-size: 22px;
+  font-weight: 800;
+  font-style: italic;
+  line-height: 1.02;
+}
+
+.timesale .badgeText {
+  padding-top: 6px;
+}
+
+.outlet .badgeText {
+  font-size: 24px;
+}

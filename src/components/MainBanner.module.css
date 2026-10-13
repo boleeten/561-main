@@ -1,0 +1,107 @@
+.section {
+  /* 좌우로 넘치는 슬라이드(peek)는 화면 밖에서 잘라냄 */
+  overflow-x: clip;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.viewport {
+  position: relative;
+}
+
+.track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.slide {
+  flex: 0 0 calc(100% / 3);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  aspect-ratio: 526 / 701;
+  overflow: hidden;
+  background: var(--bg-light);
+}
+
+.dim {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 526 / 280;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+.text {
+  position: absolute;
+  left: 56px;
+  right: 56px;
+  bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--text-white);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.desc {
+  font-size: 15px;
+}
+
+.controls {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.progress {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  background: var(--line-soft);
+  overflow: hidden;
+}
+
+.bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--bg-promo);
+  transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.ctrl {
+  width: 32px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sep {
+  width: 1px;
+  height: 16px;
+  background: var(--line-input);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .bar {
+    transition: none;
+  }
+}
