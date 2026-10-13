@@ -1,0 +1,84 @@
+/* 화면 전체 폭 흰 배경, GNB 바로 아래 */
+.layer {
+  position: absolute;
+  top: calc(100% + 1px); /* GNB 하단 보더 바로 아래 */
+  left: 0;
+  right: 0;
+  z-index: 90;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--line-soft);
+  /* GNB 메뉴(.menu)에서 상속되는 스타일 초기화 */
+  font-weight: 400;
+  white-space: normal;
+  text-align: left;
+  animation: layerIn 0.18s ease-out;
+}
+
+@keyframes layerIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 44px;
+  padding: 36px 0 40px;
+}
+
+/* 열 폭 고정 (첫 열 216, 나머지 245), 남는 공간은 오른쪽 여백 */
+.columns {
+  display: flex;
+  align-items: stretch;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 28px;
+  border-left: 1px solid var(--line-default);
+  font-size: 14px;
+  color: var(--text-sub);
+}
+
+.column:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.brand {
+  display: block;
+  width: 188px;
+  font-weight: 400;
+}
+
+/* hover: SemiBold #191919 */
+.brand:hover,
+.brand:focus-visible {
+  font-weight: 600;
+  color: var(--text-default);
+}
+
+.all {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-default);
+}
+
+.all:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer {
+    animation: none;
+  }
+}

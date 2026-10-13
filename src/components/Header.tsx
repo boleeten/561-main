@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BrandMenu from "./BrandMenu";
 import GnbSearch from "./GnbSearch";
 import { gnbCategories, gnbMenus, gnbUtils } from "@/data/main";
 import styles from "./Header.module.css";
@@ -37,10 +38,7 @@ export default function Header() {
                 ))}
                 <li className={styles.divider} aria-hidden />
                 <li>
-                  <button type="button" className={styles.brand} aria-haspopup="true">
-                    브랜드
-                    <Image src="/icons/arrow-down-12.svg" alt="" width={12} height={12} />
-                  </button>
+                  <BrandMenu buttonClassName={styles.brand} />
                 </li>
                 {gnbMenus.map((m) => (
                   <li key={m}>

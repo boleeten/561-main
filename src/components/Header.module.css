@@ -9,6 +9,7 @@
 }
 
 .gnb {
+  position: relative; /* 브랜드 레이어 기준 */
   background: var(--bg-white);
   border-bottom: 1px solid var(--line-soft);
 }
@@ -97,6 +98,11 @@
   width: 1px;
   height: 20px;
   background: var(--line-input);
+}
+
+/* 브랜드 레이어 열림: #505050 → #191919 */
+.brand[aria-expanded="true"] {
+  color: var(--text-default);
 }
 
 .brand {

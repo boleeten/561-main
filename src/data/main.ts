@@ -256,3 +256,12 @@ export const popularKeywords = {
   updatedAt: "10.12 15:00:00",
   items: ["레스포색", "판도라", "UDF MLB X PEANUTS", "캐스키드슨", "파우치", "파라점퍼스", "베어브릭", "산드리옹", "판도라 참", "타이맥스"],
 };
+
+// GNB 브랜드 레이어 — 알파벳순 (5열 고정, 세로 방향으로 채움)
+export const brands = [
+  "AIPPO", "BY FAR", "BRISTON", "BRIC'S", "COQ", "CAREL", "CELLCOSMET", "CATH KIDSTON",
+  "DROLE DE MONSIEUR", "EMDIRUSA", "FAUX PAS PARIS COSMETIC", "FAMILY FIRST", "FENG CHEN WANG", "FERRAGAMO", "Gc", "GUESS USA",
+  "GUESS", "GCDS", "ILSE JACOBSEN", "JustOverTheTop", "KWAY", "KUSMITEA", "KEEN", "KINKI ROBOT",
+  "KNDX", "LANCASTER", "LESPORTSAC", "MARCO'S CHOCOLATE", "OLIVIA BURTON", "PARAJUMPERS", "PAULA CANOVAS DEL VAS", "PANDORA",
+  "PORTER", "PHIPPS", "REPETTO", "SELF-PORTRAIT", "SUNNEI", "TIMEX", "TACH CLOTHING", "VILEBREQUIN",
+];
