@@ -1,0 +1,99 @@
+/* GNB hover 드롭다운 공통 (카테고리 서브메뉴, 마이 레이어)
+   CSS :hover / :focus-within 으로 열림. .dropdown의 padding-top이
+   항목과 GNB 하단 사이 간격을 메워 마우스 이동 중에도 닫히지 않게 함 */
+.item {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  z-index: 80;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.15s ease, visibility 0s linear 0.15s;
+  /* GNB 메뉴에서 상속되는 스타일 초기화 */
+  font-weight: 400;
+  white-space: normal;
+  text-align: left;
+}
+
+.item:hover > .dropdown,
+.item:focus-within > .dropdown {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.15s ease;
+}
+
+/* 카테고리: 항목 하단 → GNB 하단 보더 아래까지 21px, 텍스트 정렬 위해 왼쪽 -20 */
+.category .dropdown {
+  left: -20px;
+  padding-top: 21px;
+}
+
+/* 마이: 아이콘 하단 → GNB 하단 보더 아래까지 13px, 콘텐츠 오른쪽 끝 정렬(장바구니 36 + 간격 8) */
+.my .dropdown {
+  right: -44px;
+  padding-top: 13px;
+}
+
+/* Figma: 흰 배경, 좌·우·하 1px #ECEFF2, 상 24 / 하 28 / 좌우 20, 행 간격 20 */
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 20px 28px;
+  background: var(--bg-white);
+  border: 1px solid var(--line-soft);
+  border-top: 0;
+  font-size: 14px;
+  color: var(--text-sub);
+}
+
+.box > li {
+  width: 140px;
+}
+
+.myLogin > li {
+  width: auto;
+}
+
+.link {
+  display: block;
+}
+
+/* hover: SemiBold #191919 */
+.link:hover,
+.link:focus-visible {
+  font-weight: 600;
+  color: var(--text-default);
+}
+
+.name {
+  font-weight: 600;
+  color: var(--text-default);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rowLabel {
+  width: 80px;
+}
+
+.rowValue {
+  width: 96px;
+  text-align: right;
+  color: var(--point);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dropdown,
+  .item:hover > .dropdown,
+  .item:focus-within > .dropdown {
+    transition: none;
+  }
+}

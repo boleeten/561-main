@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import BrandMenu from "./BrandMenu";
 import GnbSearch from "./GnbSearch";
+import MyMenu from "./MyMenu";
+import dd from "./GnbDropdown.module.css";
 import { gnbCategories, gnbMenus, gnbUtils } from "@/data/main";
 import styles from "./Header.module.css";
 
@@ -32,8 +34,21 @@ export default function Header() {
             <nav aria-label="카테고리">
               <ul className={styles.menu}>
                 {gnbCategories.map((c) => (
-                  <li key={c}>
-                    <a href="#">{c}</a>
+                  <li key={c.label} className={`${dd.item} ${dd.category}`}>
+                    <a href="#" aria-haspopup="true">
+                      {c.label}
+                    </a>
+                    <div className={dd.dropdown}>
+                      <ul className={dd.box}>
+                        {c.sub.map((s) => (
+                          <li key={s}>
+                            <a href="#" className={dd.link}>
+                              {s}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </li>
                 ))}
                 <li className={styles.divider} aria-hidden />
@@ -53,9 +68,7 @@ export default function Header() {
               <a href="#" className={styles.iconBtn} aria-label="찜">
                 <Image src="/icons/heart-28.svg" alt="" width={28} height={28} />
               </a>
-              <a href="#" className={styles.iconBtn} aria-label="마이페이지">
-                <Image src="/icons/mypage-28.svg" alt="" width={28} height={28} />
-              </a>
+              <MyMenu iconClassName={styles.iconBtn} />
               <a href="#" className={styles.iconBtn} aria-label="장바구니 12개">
                 <span className={styles.bag}>
                   <Image src="/icons/bag-28.svg" alt="" width={28} height={28} />

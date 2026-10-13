@@ -237,7 +237,17 @@ export const categoryBanners = [
   { id: "beauty", label: "뷰티", image: "/images/cat-beauty.png" },
 ];
 
-export const gnbCategories = ["여성", "남성", "가방", "시계 / 주얼리", "잡화", "뷰티", "라이프스타일", "키즈"];
+// GNB 카테고리 8개 + 서브메뉴 (여성은 Figma 기준, 나머지는 더미)
+export const gnbCategories: { label: string; sub: string[] }[] = [
+  { label: "여성", sub: ["니트웨어", "드레스", "스윔웨어", "스커트", "라운지웨어", "액티브웨어", "재킷 & 코트", "탑"] },
+  { label: "남성", sub: ["니트웨어", "셔츠", "티셔츠", "팬츠", "라운지웨어", "액티브웨어", "재킷 & 코트", "수트"] },
+  { label: "가방", sub: ["토트백", "숄더백", "크로스백", "백팩", "클러치", "여행가방", "지갑"] },
+  { label: "시계 / 주얼리", sub: ["시계", "목걸이", "팔찌", "반지", "귀걸이", "참"] },
+  { label: "잡화", sub: ["모자", "스카프", "벨트", "선글라스", "양말", "우산"] },
+  { label: "뷰티", sub: ["스킨케어", "메이크업", "향수", "바디케어", "헤어케어"] },
+  { label: "라이프스타일", sub: ["홈데코", "키친", "푸드", "티 & 커피", "문구", "토이"] },
+  { label: "키즈", sub: ["아우터", "상의", "하의", "원피스", "신발", "액세서리"] },
+];
 export const gnbMenus = ["베스트", "신상품", "기획전", "아울렛", "에디토리얼", "561EXCLUSIVE", "이벤트"];
 export const gnbUtils = ["로그인", "회원가입", "고객센터", "최근본상품"];
 
@@ -265,3 +275,12 @@ export const brands = [
   "KNDX", "LANCASTER", "LESPORTSAC", "MARCO'S CHOCOLATE", "OLIVIA BURTON", "PARAJUMPERS", "PAULA CANOVAS DEL VAS", "PANDORA",
   "PORTER", "PHIPPS", "REPETTO", "SELF-PORTRAIT", "SUNNEI", "TIMEX", "TACH CLOTHING", "VILEBREQUIN",
 ];
+
+// 마이페이지 아이콘 hover 레이어 (더미 로그인 상태 — null이면 비로그인 레이어)
+export const currentUser: { name: string; point561: number; membershipPoint: number; coupon: number; review: number } | null = {
+  name: "성현식",
+  point561: 20000,
+  membershipPoint: 20000,
+  coupon: 0,
+  review: 0,
+};
