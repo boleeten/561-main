@@ -4,8 +4,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./BandBanner.module.css";
 
-// Figma에는 띠배너 이미지가 1장만 있어 동일 이미지로 3장 구성 (인디케이터 3개 기준)
-const bands = ["/images/band.png", "/images/band.png", "/images/band.png"];
+// Figma 띠배너 이미지 (552:27578, 791:6107)
+const bands = [
+  { src: "/images/band.png", alt: "TRENDING NOW 지금 가장 주목받는 아이템", dark: false },
+  // 검정 배경 배너: 인디케이터를 밝은 색으로 반전
+  { src: "/images/band-2.png", alt: "561 OUTLET 이슈 브랜드를 할인가로 만나보세요", dark: true },
+];
 
 export default function BandBanner() {
   const [index, setIndex] = useState(0);
@@ -19,10 +23,18 @@ export default function BandBanner() {
   }, [playing, index]);
 
   return (
-    <section className={`container ${styles.band}`} aria-roledescription="carousel" aria-label="TRENDING NOW">
-      <a href="#" className={styles.img}>
-        <Image src={bands[index]} alt="TRENDING NOW 지금 핫한 브랜드 아이템" fill sizes="1580px" />
-      </a>
+    <section className={`container ${styles.band}`} aria-roledescription="carousel" aria-label="띠배너">
+      {bands.map((b, i) => (
+        <a
+          key={b.src}
+          href="#"
+          className={`${styles.img} ${i === index ? styles.current : ""}`}
+          aria-hidden={i !== index}
+          tabIndex={i === index ? 0 : -1}
+        >
+          <Image src={b.src} alt={b.alt} fill sizes="1580px" />
+        </a>
+      ))}
 
       <button type="button" className={`${styles.roll} ${styles.prev}`} onClick={() => go(-1)} aria-label="이전 배너">
         <Image src="/icons/rolling-left-20.svg" alt="" width={20} height={20} />
@@ -31,7 +43,7 @@ export default function BandBanner() {
         <Image src="/icons/rolling-right-20.svg" alt="" width={20} height={20} />
       </button>
 
-      <div className={styles.indicator}>
+      <div className={`${styles.indicator} ${bands[index].dark ? styles.onDark : ""}`}>
         <ol className={styles.dots}>
           {bands.map((_, i) => (
             <li key={i}>

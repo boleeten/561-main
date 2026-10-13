@@ -8,6 +8,16 @@
   inset: 0;
   display: block;
   background: var(--bg-light);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+
+/* 현재 배너: 페이드 인 */
+.current {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease;
 }
 
 .img img {
@@ -63,6 +73,15 @@
   background: var(--icon-default);
 }
 
+/* 어두운 배너 위: 활성 흰색, 비활성 반투명 흰색 */
+.onDark .dots button {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.onDark .dots .active {
+  background: var(--icon-white);
+}
+
 .pause {
   width: 18px;
   height: 18px;
@@ -94,7 +113,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .roll {
+  .roll,
+  .img,
+  .current {
     transition: none;
   }
 }
