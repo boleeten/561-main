@@ -1,12 +1,24 @@
 "use client";
 
-import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { subBanners } from "@/data/main";
 import CropImage from "./CropImage";
 import styles from "./SubBanner.module.css";
 
 const STEP = 336 + 24; // 카드 폭 + gap
+
+// Design Library PC_swiperbutton 화살표 (색은 버튼 상태에 따라 currentColor로 지정)
+function Arrow16({ dir }: { dir: "left" | "right" }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+      <path
+        d={dir === "left" ? "M10 13.3333L4.66667 8L10 2.66667" : "M6 2.66667L11.3333 8L6 13.3333"}
+        stroke="currentColor"
+        strokeLinecap="square"
+      />
+    </svg>
+  );
+}
 
 export default function SubBanner() {
   const listRef = useRef<HTMLUListElement>(null);
@@ -33,10 +45,10 @@ export default function SubBanner() {
     <section className={`container ${styles.section}`} aria-label="기획전">
       <div className={styles.nav}>
         <button type="button" className={styles.btn} onClick={() => scroll(-1)} disabled={edge.start} aria-label="이전">
-          <Image src="/icons/arrow-left-16.svg" alt="" width={16} height={16} />
+          <Arrow16 dir="left" />
         </button>
         <button type="button" className={styles.btn} onClick={() => scroll(1)} disabled={edge.end} aria-label="다음">
-          <Image src="/icons/arrow-right-16.svg" alt="" width={16} height={16} />
+          <Arrow16 dir="right" />
         </button>
       </div>
 
