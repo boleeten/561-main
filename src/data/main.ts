@@ -93,6 +93,12 @@ export const quickMenus: QuickMenuItem[] = [
     image: "/images/quick-parajumpers.png",
     crop: { left: "10.66%", top: "0.79%", width: "77.5%", height: "98.42%" },
   },
+  // 2페이지 (추가 퀵메뉴 — 기존 에셋 재사용)
+  { id: "kids", label: ["키즈"], type: "image", image: "/images/cat-kids.png" },
+  { id: "acc", label: ["잡화"], type: "image", image: "/images/cat-acc.png" },
+  { id: "bearbrick", label: ["베어브릭", "아트 에디션"], type: "image", image: "/images/new-5.jpg" },
+  { id: "kusmi", label: ["쿠스미티"], type: "image", image: "/images/sub-5.png" },
+  { id: "jewelry", label: ["판도라", "특별전"], type: "image", image: "/images/new-2.jpg" },
 ];
 
 export type SubBannerItem = {

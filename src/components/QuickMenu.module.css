@@ -2,11 +2,24 @@
   position: relative;
 }
 
+/* 한 페이지 = 10개 (10 × 92 + 9 × 30 = 1190) */
+.viewport {
+  width: calc(1190px + 8px);
+  margin-inline: auto;
+  padding: 4px; /* 포커스 아웃라인이 잘리지 않도록 */
+  margin-block: -4px;
+  overflow: hidden;
+}
+
 .list {
   display: flex;
-  justify-content: center;
   align-items: flex-start;
   gap: 30px;
+  transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.list > li {
+  flex-shrink: 0;
 }
 
 .item {
@@ -49,14 +62,47 @@
   text-underline-offset: 3px;
 }
 
-/* 리스트(10 × 92 + 9 × 30 = 1190) 오른쪽 끝 + 13px */
-.more {
+/* 롤링 버튼: 리스트 양끝에서 13px 바깥 */
+.roll {
   position: absolute;
   top: 22px;
-  left: calc(50% + 595px + 13px);
+  width: 32px;
   height: 48px;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.next {
+  left: calc(50% + 595px + 13px);
+}
+
+.prev {
+  left: calc(50% - 595px - 13px - 32px);
+}
+
+.prev img {
+  transform: scaleX(-1);
+}
+
+.roll:hover img {
+  filter: brightness(0.4);
+}
+
+/* 썸네일 hover 확대 */
+.thumb img {
+  transition: transform 0.4s ease;
+}
+
+.item:hover .thumb:not(.timesale) img {
+  transform: scale(1.06);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .list,
+  .thumb img {
+    transition: none;
+  }
 }
 
 /* ── 배지형 썸네일 ── */

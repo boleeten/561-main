@@ -1,7 +1,13 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import { quickMenus } from "@/data/main";
 import CropImage from "./CropImage";
 import styles from "./QuickMenu.module.css";
+
+const PER_PAGE = 10;
+const pageCount = Math.ceil(quickMenus.length / PER_PAGE);
 
 function TimeSaleBadge() {
   return (
@@ -32,31 +38,60 @@ function OutletBadge() {
 }
 
 export default function QuickMenu() {
+  const [page, setPage] = useState(0);
+  const isFirst = page === 0;
+  const isLast = page === pageCount - 1;
+
   return (
     <nav className={`container ${styles.wrap}`} aria-label="퀵메뉴">
-      <ul className={styles.list}>
-        {quickMenus.map((m) => (
-          <li key={m.id}>
-            <a href="#" className={styles.item}>
-              {m.type === "timesale" && <TimeSaleBadge />}
-              {m.type === "outlet" && <OutletBadge />}
-              {m.type === "image" && (
-                <span className={styles.thumb}>
-                  <CropImage src={m.image} alt="" crop={m.crop} sizes="92px" />
-                </span>
-              )}
-              <span className={styles.label}>
-                {m.label.map((l) => (
-                  <span key={l}>{l}</span>
-                ))}
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
-      <a href="#" className={styles.more} aria-label="카테고리 전체보기">
-        <Image src="/icons/arrow-right-32.svg" alt="" width={32} height={32} />
-      </a>
+      <div className={styles.viewport}>
+        <ul className={styles.list} style={{ transform: `translateX(calc(${-page} * (100% + 30px)))` }}>
+          {quickMenus.map((m, i) => {
+            const hidden = Math.floor(i / PER_PAGE) !== page;
+            return (
+              <li key={m.id} inert={hidden} aria-hidden={hidden}>
+                <a href="#" className={styles.item}>
+                  {m.type === "timesale" && <TimeSaleBadge />}
+                  {m.type === "outlet" && <OutletBadge />}
+                  {m.type === "image" && (
+                    <span className={styles.thumb}>
+                      <CropImage src={m.image} alt="" crop={m.crop} sizes="92px" />
+                    </span>
+                  )}
+                  <span className={styles.label}>
+                    {m.label.map((l) => (
+                      <span key={l}>{l}</span>
+                    ))}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      {!isFirst && (
+        <button
+          type="button"
+          className={`${styles.roll} ${styles.prev}`}
+          onClick={() => setPage((p) => p - 1)}
+          aria-label="이전 퀵메뉴"
+        >
+          <Image src="/icons/arrow-right-32.svg" alt="" width={32} height={32} />
+        </button>
+      )}
+      {!isLast && (
+        <button
+          type="button"
+          className={`${styles.roll} ${styles.next}`}
+          onClick={() => setPage((p) => p + 1)}
+          aria-label="다음 퀵메뉴"
+        >
+          <Image src="/icons/arrow-right-32.svg" alt="" width={32} height={32} />
+        </button>
+      )}
+      <p className="sr-only" aria-live="polite">
+        {page + 1} / {pageCount} 페이지
+      </p>
     </nav>
   );
 }
