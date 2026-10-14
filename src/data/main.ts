@@ -167,18 +167,83 @@ export type Product = {
   crop?: Crop;
 };
 
-export const newItems: Product[] = [
-  { id: "n1", brand: "CATH KIDSTON", name: "스몰 북백 - 크리스마스 하우스", price: 48000, image: "/images/new-1.png" },
-  { id: "n2", brand: "CATH KIDSTON", name: "스몰 북백 - 크리스마스 하우스", price: 48000, image: "/images/new-2.jpg" },
-  { id: "n3", brand: "CATH KIDSTON", name: "스몰 북백 - 크리스마스 하우스", price: 48000, image: "/images/new-3.png" },
-  { id: "n4", brand: "CATH KIDSTON", name: "조미료병 세트 - 폴라 베어 디어", price: 68000, image: "/images/new-4.png" },
+export type NewsProduct = {
+  id: string;
+  brand: string;
+  name: string;
+  price: number;
+  /** 할인 전 가격 (지정 시 할인율 + 취소선 원가 노출) */
+  originalPrice?: number;
+  image: string;
+};
+
+export type NewsItem = {
+  id: string;
+  image: string;
+  brand?: string;
+  title: string;
+  desc: string;
+  products: NewsProduct[];
+  /** ISO 날짜 (YYYY-MM-DD) */
+  date: string;
+  likes: number;
+};
+
+export const newsItems: NewsItem[] = [
   {
-    id: "n5",
-    brand: "CATH KIDSTON",
-    name: "에이프런 앞치마 - 크리스마스 딧시",
-    price: 58000,
-    image: "/images/new-5.jpg",
-    crop: { left: "4.45%", top: "5.5%", width: "91.1%", height: "89%" },
+    id: "marcos",
+    image: "/images/news-1.jpg",
+    brand: "MARCO'S CHOCOLATE",
+    title: "브랜드 오리지널 스토리, 마르코스 초콜릿",
+    desc: "마르코스 초콜릿으로 만드는 프리미엄 디저트 레시피 등 A to Z를 심층 소개합니다.",
+    products: [
+      { id: "m1", brand: "MARCO'S CHOCOLATE", name: "다크초코 보리건빵 통건빵 420g (35gx12봉)", price: 32000, image: "/images/news-1-1.jpg" },
+      { id: "m2", brand: "MARCO'S CHOCOLATE", name: "쿠앤크초코 보리건빵 통건빵 420g (35gx12봉)", price: 32000, image: "/images/news-1-2.jpg" },
+      { id: "m3", brand: "MARCO'S CHOCOLATE", name: "녹차초코 보리건빵 통건빵 420g (35gx12봉)", price: 32000, image: "/images/news-1-3.jpg" },
+    ],
+    date: "2024-01-18",
+    likes: 0,
+  },
+  {
+    id: "holiday",
+    image: "/images/news-2.jpg",
+    title: "리뷰세이, 홀리데이 기프트",
+    desc: "호불호 없는 연말 선물! 561 마케터가 추천하는 홀리데이 기프트를 확인해 보세요.",
+    products: [
+      { id: "h1", brand: "MARCO'S CHOCOLATE", name: "녹차초코 보리건빵 통건빵 420g (35gx12봉)", price: 32000, image: "/images/news-2-1.jpg" },
+      { id: "h2", brand: "KUSMITEA", name: "유기농 화이트 벨리니 90g 메탈틴", price: 62000, image: "/images/news-2-2.jpg" },
+      { id: "h3", brand: "KINKI ROBOT", name: "1000% BEARBRICK GARFIELD Flocky Ver.", price: 1180000, image: "/images/news-2-3.jpg" },
+    ],
+    date: "2023-12-07",
+    likes: 0,
+  },
+  {
+    id: "parajumpers",
+    image: "/images/news-3.jpg",
+    brand: "PARAJUMPERS",
+    title: "시즈널 컬렉션, 파라점퍼스",
+    desc: "파라점퍼스 뉴 시즌 컬렉션 룩북을 시즈널 컬렉션에서 제일 먼저 만나보세요!",
+    products: [
+      {
+        id: "p1",
+        brand: "PARAJUMPERS",
+        name: "여성 숏 다운 자켓 세시-Sun Kissed (24WMPWPUPD31PJ0710)",
+        price: 545000,
+        originalPrice: 1090000,
+        image: "/images/news-3-1.jpg",
+      },
+      {
+        id: "p2",
+        brand: "PARAJUMPERS",
+        name: "남성 롱 후드 자켓 하야테-Black (24WMPMJKBL02PJ0541)",
+        price: 845000,
+        originalPrice: 1690000,
+        image: "/images/news-3-2.jpg",
+      },
+      { id: "p3", brand: "PARAJUMPERS", name: "유니섹스 다운 크로스 바디백 호보-Rosmary (24WMPABAB01PJ0710)", price: 339000, image: "/images/news-3-3.jpg" },
+    ],
+    date: "2024-12-05",
+    likes: 0,
   },
 ];
 

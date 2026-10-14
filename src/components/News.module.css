@@ -1,0 +1,167 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 70px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* 대표 이미지: 정사각, 직각 */
+.hero {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--bg-light);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--thumb-tint);
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 28px;
+  height: 28px;
+  z-index: 1;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+}
+
+.brand {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--text-default);
+  letter-spacing: 0;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text-default);
+}
+
+.desc {
+  margin-top: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  color: var(--text-body);
+}
+
+.head:hover .title {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.productThumb {
+  position: relative;
+  flex: none;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  background: var(--bg-light);
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.productBrand {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-default);
+  letter-spacing: 0;
+}
+
+.productName {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+.productPrice {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--text-default);
+}
+
+.rate {
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+.original {
+  font-size: 12px;
+  color: var(--text-disable);
+}
+
+.product:hover .productName {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 하단 날짜 · 좋아요 */
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-divider);
+  font-size: 14px;
+  color: var(--text-body);
+  letter-spacing: 0;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text-sub);
+}

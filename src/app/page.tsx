@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import MainBanner from "@/components/MainBanner";
 import MdPick from "@/components/MdPick";
-import NewItem from "@/components/NewItem";
+import News from "@/components/News";
 import QuickMenu from "@/components/QuickMenu";
 import SubBanner from "@/components/SubBanner";
 import styles from "./page.module.css";
@@ -20,7 +20,7 @@ export default function Home() {
           <SubBanner />
         </div>
         <BandBanner />
-        <NewItem />
+        <News />
         <MdPick />
         <CategoryBanner />
       </main>
