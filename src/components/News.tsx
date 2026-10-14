@@ -40,12 +40,15 @@ function NewsProductRow({ product }: { product: NewsProduct }) {
   );
 }
 
-function NewsCard({ item }: { item: NewsItem }) {
+// 2안(4열)에서 브랜드가 없는 소식에 넣는 기본 라벨 (제목 줄 맞춤용)
+const FALLBACK_BRAND = "561 PICK";
+
+function NewsCard({ item, compact = false }: { item: NewsItem; compact?: boolean }) {
   const [liked, setLiked] = useState(false);
   const likes = item.likes + (liked ? 1 : 0);
 
   return (
-    <article className={styles.card}>
+    <article className={`${styles.card} ${compact ? styles.compact : ""}`}>
       <a href="#" className={styles.hero}>
         <Image src={item.image} alt={item.title} fill sizes="(max-width: 1660px) 31vw, 480px" style={{ objectFit: "cover" }} />
       </a>
@@ -66,13 +69,17 @@ function NewsCard({ item }: { item: NewsItem }) {
       </button>
 
       <a href="#" className={styles.head}>
-        {item.brand && <span className={styles.brand}>{item.brand}</span>}
+        {compact ? (
+          <span className={styles.brand}>{item.brand ?? FALLBACK_BRAND}</span>
+        ) : (
+          item.brand && <span className={styles.brand}>{item.brand}</span>
+        )}
         <h3 className={styles.title}>{item.title}</h3>
         <p className={styles.desc}>{item.desc}</p>
       </a>
 
       <ul className={styles.products}>
-        {item.products.map((p) => (
+        {(compact ? item.products.slice(0, 2) : item.products).map((p) => (
           <li key={p.id}>
             <NewsProductRow product={p} />
           </li>
@@ -133,7 +140,7 @@ export default function News() {
         <ul className={`${styles.list} ${columns === 4 ? styles.cols4 : ""}`}>
           {items.map((item) => (
             <li key={item.id}>
-              <NewsCard item={item} />
+              <NewsCard item={item} compact={columns === 4} />
             </li>
           ))}
         </ul>

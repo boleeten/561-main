@@ -206,3 +206,27 @@
   font-size: 12px;
   color: var(--text-sub);
 }
+
+/* 2안(4열): 줄 맞춤 — 제목 한 줄, 날짜 줄은 카드 바닥에 고정 */
+.cols4 > li {
+  display: flex;
+}
+
+.compact {
+  flex: 1;
+}
+
+.compact .title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 20px;
+}
+
+.compact .meta {
+  margin-top: auto;
+}
+
+.compact .products {
+  margin-bottom: 24px;
+}
