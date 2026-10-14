@@ -82,12 +82,12 @@ function NewsCard({ item }: { item: NewsItem }) {
       <footer className={styles.meta}>
         <time dateTime={item.date}>{formatDate(item.date)}</time>
         <span className={styles.likes} aria-label={`좋아요 ${likes}개`}>
-          <svg width="12" height="12" viewBox="0 0 28 28" aria-hidden>
+          <svg width="18" height="18" viewBox="0 0 28 28" aria-hidden>
             <path
               d={HEART_PATH}
               fill={liked ? "var(--point)" : "none"}
               stroke={liked ? "var(--point)" : "currentColor"}
-              strokeWidth="2.4"
+              strokeWidth="1.6"
             />
           </svg>
           {likes}
