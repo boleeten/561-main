@@ -1,13 +1,54 @@
 .section {
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 18px;
+}
+
+/* 라인 탭 (MD's PICK과 동일) */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.tab {
+  padding: 0 16px;
+  font-size: 16px;
+  letter-spacing: 0;
+  color: var(--text-body);
+}
+
+.tab span {
+  display: block;
+  height: 46px;
+  padding: 12px 2px;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--text-default);
+}
+
+.active {
+  font-weight: 600;
+  color: var(--text-default);
+}
+
+.active span {
+  border-bottom-color: var(--line-strong);
 }
 
 .list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: 70px;
+}
+
+/* 2안: 4열 등분 */
+.cols4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 40px;
 }
 
 .card {

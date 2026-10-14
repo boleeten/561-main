@@ -97,17 +97,47 @@ function NewsCard({ item }: { item: NewsItem }) {
   );
 }
 
+// 레이아웃 비교용 시안 탭: 1안 3열, 2안 4열 (같은 1580px 폭에 등분)
+const VARIANTS = [
+  { label: "1안", columns: 3 },
+  { label: "2안", columns: 4 },
+] as const;
+
 export default function News() {
+  const [tab, setTab] = useState(0);
+  const { columns } = VARIANTS[tab];
+  const items = newsItems.slice(0, columns);
+
   return (
     <section className={`container ${styles.section}`} aria-labelledby="news-title">
       <SectionTitle id="news-title">신상소식</SectionTitle>
-      <ul className={styles.list}>
-        {newsItems.map((item) => (
-          <li key={item.id}>
-            <NewsCard item={item} />
-          </li>
+
+      <div role="tablist" aria-label="레이아웃 시안" className={styles.tabs}>
+        {VARIANTS.map((v, i) => (
+          <button
+            key={v.label}
+            type="button"
+            role="tab"
+            id={`news-tab-${i}`}
+            aria-selected={tab === i}
+            aria-controls="news-panel"
+            className={`${styles.tab} ${tab === i ? styles.active : ""}`}
+            onClick={() => setTab(i)}
+          >
+            <span>{v.label}</span>
+          </button>
         ))}
-      </ul>
+      </div>
+
+      <div role="tabpanel" id="news-panel" aria-labelledby={`news-tab-${tab}`}>
+        <ul className={`${styles.list} ${columns === 4 ? styles.cols4 : ""}`}>
+          {items.map((item) => (
+            <li key={item.id}>
+              <NewsCard item={item} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }

@@ -245,6 +245,27 @@ export const newsItems: NewsItem[] = [
     date: "2024-12-05",
     likes: 0,
   },
+  {
+    id: "bearbrick",
+    image: "/images/main-1.png",
+    brand: "KINKI ROBOT",
+    title: "아트 에디션, 베어브릭",
+    desc: "프리즈 서울을 맞아 프레임 밖으로 나온 베어브릭 아트 에디션을 만나보세요.",
+    products: [
+      { id: "b1", brand: "KINKI ROBOT", name: "1000% BEARBRICK LA Dodgers 2024", price: 1280000, image: "/images/new-5.jpg" },
+      { id: "b2", brand: "KINKI ROBOT", name: "1000% BEARBRICK GARFIELD Flocky Ver.", price: 1180000, image: "/images/news-2-3.jpg" },
+      {
+        id: "b3",
+        brand: "KINKI ROBOT",
+        name: "100% & 400% BEARBRICK LA Dodgers 2024 세트",
+        price: 189000,
+        originalPrice: 270000,
+        image: "/images/new-5.jpg",
+      },
+    ],
+    date: "2024-09-04",
+    likes: 0,
+  },
 ];
 
 const mdCrops: Crop[] = [
