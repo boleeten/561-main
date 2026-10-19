@@ -127,22 +127,25 @@
 
 .buttons {
   display: flex;
-  gap: 2px;
+  gap: 8px;
   margin-top: 4px;
 }
 
 .btn {
-  height: 26px;
+  height: 28px;
   display: flex;
   align-items: center;
-  padding: 0 12px;
-  border: 1px solid var(--line-button);
-  background: var(--bg-white);
+  padding: 0 14px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-control);
+  color: var(--accent);
   font-size: 12px;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
 }
 
 .btn:hover {
-  border-color: var(--line-strong);
+  background: var(--accent);
+  color: var(--text-white);
 }
 
 .app {

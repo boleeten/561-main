@@ -1,6 +1,9 @@
 .title {
-  font-size: 28px;
+  font-family: var(--font-display);
+  font-size: 40px;
   font-weight: 600;
+  line-height: var(--lh-headline);
+  letter-spacing: var(--ls-headline);
   text-align: center;
   color: var(--text-default);
 }

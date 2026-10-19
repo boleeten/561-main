@@ -37,15 +37,15 @@
   padding-top: 13px;
 }
 
-/* Figma: 흰 배경, 좌·우·하 1px #ECEFF2, 상 24 / 하 28 / 좌우 20, 행 간격 20 */
+/* 떠 있는 레이어: 흰 배경 + 플로팅 그림자, 상 24 / 하 28 / 좌우 20, 행 간격 20 */
 .box {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 24px 20px 28px;
   background: var(--bg-white);
-  border: 1px solid var(--line-soft);
-  border-top: 0;
+  border-radius: 0 0 var(--radius-card) var(--radius-card);
+  box-shadow: var(--shadow-float);
   font-size: 14px;
   color: var(--text-sub);
 }

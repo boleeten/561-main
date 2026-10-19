@@ -9,32 +9,35 @@
   justify-content: center;
 }
 
+/* 알약형 칩 탭: 활성은 잉크색 채움 */
 .tab {
-  padding: 0 16px;
-  font-size: 16px;
+  padding: 0 4px;
+  font-size: 14px;
   letter-spacing: 0;
-  color: var(--text-body);
+  color: var(--text-default);
 }
 
 .tab span {
   display: block;
-  height: 46px;
-  padding: 12px 2px;
-  border-bottom: 2px solid transparent;
+  height: 36px;
+  padding: 8px 16px;
+  border-radius: var(--radius-control);
+  background: var(--bg-light);
   white-space: nowrap;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
 }
 
-.tab:hover {
-  color: var(--text-default);
+.tab:hover span {
+  background: var(--line-soft);
 }
 
 .active {
-  font-weight: 600;
-  color: var(--text-default);
+  color: var(--text-white);
 }
 
-.active span {
-  border-bottom-color: var(--line-strong);
+.active span,
+.active:hover span {
+  background: var(--text-default);
 }
 
 .panel {
@@ -62,6 +65,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-light);
+  transition: background-color var(--dur) var(--ease);
+}
+
+.pageBtn:hover {
+  background: var(--line-soft);
 }
 
 .count {

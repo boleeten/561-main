@@ -5,12 +5,17 @@
   justify-content: center;
   background: var(--bg-promo);
   color: var(--text-white);
-  font-size: 16px;
+  font-size: 14px;
 }
 
+/* 글래스 GNB: 반투명 오프화이트 + 블러, 상단 고정 */
 .gnb {
-  position: relative; /* 브랜드 레이어 기준 */
-  background: var(--bg-white);
+  position: sticky; /* 브랜드 레이어 기준 겸 상단 고정 */
+  top: 0;
+  z-index: 100;
+  background: var(--nav-glass);
+  -webkit-backdrop-filter: var(--nav-blur);
+  backdrop-filter: var(--nav-blur);
   border-bottom: 1px solid var(--line-soft);
 }
 
@@ -84,7 +89,7 @@
   align-items: center;
   gap: 24px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--text-sub);
   white-space: nowrap;
 }
@@ -109,7 +114,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--text-sub);
 }
 
